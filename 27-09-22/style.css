@@ -13,7 +13,6 @@ body {
 code {
   font-family: Consolas, "courier new";
   color: crimson;
-  background-color: #f1f1f1;
   padding: 2px;
   font-size: 105%;
 }
@@ -22,12 +21,9 @@ main {
     padding: 3rem;
 }
 
-h1, h2 {
+h1, h2{
+    margin-top: 3rem;
     text-align: center;
-}
-
-h2 {
-    padding-top: 2rem;
 }
 
 nav {
@@ -41,13 +37,48 @@ nav div {
     padding-right: 1.5rem;
 }
 
-.definition_container {
+p {
+    max-width: 75ch;
+}
+
+.pre_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.def_container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.exp_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tag_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.def_son_container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.code {
     display: flex;
     justify-content: center;
 }
 
-.example_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.attr {
+    color: orange;
+}
+
+.str {
+    color: rgb(74, 197, 25);
 }
