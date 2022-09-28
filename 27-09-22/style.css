@@ -47,6 +47,10 @@ p {
     max-width: 75ch;
 }
 
+textarea {
+    resize: none;
+}
+
 .pre_container {
     display: flex;
     flex-direction: column;
