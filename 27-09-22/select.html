@@ -73,24 +73,30 @@
             </div>
         </nav>
 
-        <h1>Input</h1>
+        <h1>Select</h1>
         <article class="tag_container">
             <section class="def_container">
-                <p>Es la etiqueta que nos permite introducir datos dentro de un formulario</p>
-                <p>Es común asociarlo con un <a href="./label.html"><<code>label</code>></a> (Etiqueta)</p>
+                <p>El elemento (<<code>select</code>>) de HTML representa una selección de opciones. Las opciones
+                        contenidas en el menú son representadas por elementos <a href="./option.html"><<code>option</code>></a>, los cuales pueden
+                            ser agrupados por elementos <a href="./optgroup.html"><<code>optgroup</code>></a></p>
             </section>
 
             <h2>Ejemplo</h2>
             <section class="exp_container">
                 <div class="code">
-                    <div>&lt<code>label</code> <code class="attr">for</code>=<code class="str">"name"</code>>Name (4 to
-                        8 characters):&lt;/<code>label</code>&gt;</div>
-                    <div>&lt;<code>input</code><code class="attr">id</code> =<code class="str">"name"</code>&gt;</div>
+                    <div>&lt<code>select</code> <code class="attr">name</code>=<code class="str">"select"</code>></div>
+                    <pre>    &lt;<code>option</code><code class="attr">value</code> =<code class="str">"value1"</code>&gt; Value 1 &lt;/<code>option</code>&gt;</pre>
+                    <pre>    &lt;<code>option</code><code class="attr">value</code> =<code class="str">"value2"</code>&gt; Value 2 &lt;/<code>option</code>&gt;</pre>
+                    <pre>    &lt;<code>option</code><code class="attr">value</code> =<code class="str">"value3"</code>&gt; Value 3 &lt;/<code>option</code>&gt;</pre>
+                    <div>&lt;/<code>select</code>&gt;</div>
                 </div>
 
                 <div class="code exp">
-                    <label for="name">Name (4 to 8 characters):</label>
-                    <input id="name">
+                    <select name="select">
+                        <option value="value1">Value 1</option>
+                        <option value="value2" selected>Value 2</option>
+                        <option value="value3">Value 3</option>
+                      </select>
                 </div>
             </section>
         </article>
