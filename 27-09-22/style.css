@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+    --border: 0.05px solid rgb(0,0,0,0.1);
+    --background: #FFFAFA;
+    --header_background: #FFFAE7;
+}
 
 html,
 body {
@@ -10,7 +15,7 @@ body {
   height: 100vh;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
-  background: #FFFAFA;
+  background: var(--background);
 }
 
 code {
@@ -30,8 +35,8 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #FFFAE7;
-    border-bottom: 0.05px solid rgb(0,0,0,0.1);
+    background: var(--header_background);
+    border-bottom: var(--border);
     padding: 3rem;
 }
 
@@ -41,6 +46,7 @@ main {
 
 h2{
     margin-top: 3rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
@@ -81,8 +87,11 @@ textarea {
 }
 
 .exp_container {
+    width: 55%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    border: var(--border);
 }
 
 .tag_container {
@@ -102,8 +111,14 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 30%;
-    margin-top: 2rem;
+    width: 50%;
+    padding: 2rem 3rem 2rem 3rem;
+    border: var(--border);
+}
+
+.code_html {
+    background: #1b1b1b;
+    color: var(--background);
 }
 
 .exp {
