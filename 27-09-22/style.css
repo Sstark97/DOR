@@ -93,6 +93,10 @@ textarea {
     align-items: center;
 }
 
+.datalist {
+    justify-content: flex-start;
+}
+
 .code input, label{
     width: 50%;
 }
