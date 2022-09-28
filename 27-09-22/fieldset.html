@@ -73,55 +73,34 @@
             </div>
         </nav>
 
-        <div class="def_container">
-            <div class="def_son_container">
+        <h1>Fieldset</h1>
+        <article class="tag_container">
+            <section class="def_container">
+                <p>Nos permite organizar en grupos los campos dentro de un formulario</p>
+            </section>
 
-                <article>
-                    <h2>FieldSet</h2>
-                    <section class="definition_container">
-                        <p>Nos permite organizar en grupos los campos dentro de un formulario</p>
-                    </section>
-                </article>
-            </div>
+            <h2>Ejemplo</h2>
+            <section class="exp_container">
+                <div class="code">
+                    <div>&lt<code>form</code> <code class="attr">name</code>=<code class="str">"select"</code>></div>
+                    <pre>    &lt;<code>fieldset</code>&gt;</pre>
+                    <pre>       Nombre: &lt;<code>input</code><code class="attr">name</code> =<code class="str">"nombre"</code>&gt;</pre>
+                    <pre>       Apellidos: &lt;<code>input</code><code class="attr">name</code> =<code class="str">"apellidos"</code>&gt;</pre>
+                    <pre>    &lt;/<code>fieldset</code>&gt;</pre>
+                    <div>&lt;/<code>form</code>&gt;</div>
+                </div>
 
-            <div class="def_son_container">
-                <article>
-                    <h2>Legend</h2>
-                    <section class="definition_container">
-                        <p>Es la etiqueta que nos permite introducir datos dentro de un formulario</p>
-                    </section>
-                </article>
-
-                <article>
-                    <h2>DataList</h2>
-                    <section class="definition_container">
-                        <p>Agrupa varios elementos <<code>option</code>>, una alternativa al <<code>select</code>></p>
-                    </section>
-                </article>
-
-                <article>
-                    <h2>Output</h2>
-                    <section class="definition_container">
-                        <p>Nos sirve para mostrar el resultado de un calculo, o el resultado de la acción de un usuario
-                        </p>
-                    </section>
-                </article>
-
-                <article>
-                    <h2>Option</h2>
-                    <section class="definition_container">
-                        <p>Es la representación de un item dentro de la etiqueta <<code>select</code>></p>
-                    </section>
-                </article>
-
-                <article>
-                    <h2>OptGroup</h2>
-                    <section class="definition_container">
-                        <p>Agrupa una serie de <<code>option</code>> dentro de una etiqueta <<code>select</code>></p>
-                    </section>
-                </article>
-            </div>
-        </div>
+                <div class="code exp">
+                    <form>
+                        <fieldset>
+                            <legend>Información Personal</legend>
+                            Nombre: <input name='nombre'>
+                            Apellidos: <input name='apellidos'>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+        </article>
     </main>
 
 </body>
