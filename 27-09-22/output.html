@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Manual de Etiquetas</title>
+</head>
+
+<body>
+    <main>
+        <h1><a href="./index.html">Manual de Etiquetas</a></h1>
+        <nav>
+            <div>
+                <a href="./input.html">
+                    <<code>input</code>>
+                </a>
+            </div>
+            <div>
+                <a href="./label.html">
+                    <<code>label</code>>
+                </a>
+            </div>
+            <div>
+                <a href="./select.html">
+                    <<code>select</code>>
+                </a>
+            </div>
+            <div>
+                <a href="./textarea.html">
+                    <<code>textarea</code>>
+                </a>
+            </div>
+            <div>
+                <a href="./button.html">
+                    <<code>button</code>>
+                </a>
+            </div>
+            <div>
+                <a href="./fieldset.html">
+                    <<code>fieldset</code>>
+                </a>
+            </div>
+            <div>
+                <a href="./legend.html">
+                    <<code>legend</code>>
+                </a>
+            </div>
+            <div>
+                <a href="./datalist.html">
+                    <<code>datalist</code>>
+                </a>
+            </div>
+            <div>
+                <a href="./output.html">
+                    <<code>output</code>>
+                </a>
+            </div>
+            <div>
+                <a href="./option.html">
+                    <<code>option</code>>
+                </a>
+            </div>
+            <div>
+                <a href="./optgroup.html">
+                    <<code>optgroup</code>>
+                </a>
+            </div>
+        </nav>
+
+        <h1>Output</h1>
+        <article class="tag_container">
+            <section class="def_container">
+                <p>Nos permite organizar en grupos los campos dentro de un formulario</p>
+            </section>
+
+            <h2>Ejemplo</h2>
+            <section class="exp_container">
+                <div class="code">
+                    <div>&lt<code>form</code> <code class="attr">oninput</code>=<code class="str">"..."</code>></div>
+                    <pre>    &lt;<code>fieldset</code>&gt;</pre>
+                    <pre>       &lt;<code>input</code><code class="attr">type</code>=<code class="str">"range"</code> <code class="attr">value</code>=<code class="str">"50"</code>&gt;</pre>
+                    <pre>       &lt;<code>input</code><code class="attr">type</code>=<code class="str">"number"</code> <code class="attr">value</code>=<code class="str">"10"</code>&gt;</pre>
+                    <pre>       &lt;<code>output</code><code class="attr">name</code>=<code class="str">"result"</code>&gt;60<code>output</code>&gt;</pre>
+                    <pre>    &lt;/<code>fieldset</code>&gt;</pre>
+                    <div>&lt;/<code>form</code>&gt;</div>
+                </div>
+
+                <div class="code exp">
+                    <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+                        <input type="range" id="b" name="b" value="50" /> +
+                        <input type="number" id="a" name="a" value="10" /> =
+                        <output name="result" for="a b">60</output>
+                    </form>                      
+                </div>
+            </section>
+        </article>
+    </main>
+
+</body>
+
+</html>
