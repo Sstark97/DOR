@@ -20,7 +20,7 @@ body {
 
 code {
   font-family: Consolas, "courier new";
-  color: crimson;
+  color: #d30038;
   padding: 2px;
   font-size: 105%;
 }
@@ -67,6 +67,33 @@ p {
 
 textarea {
     resize: none;
+}
+
+.index_h1 {
+    text-align: center;
+    padding-right: 4.7rem;
+}
+
+#index_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.index_margin {
+    margin-top: 2rem;
+}
+
+.index_iframe {
+    border: 0;
+    width:560px;
+    height:315px;
+    padding-right: 3rem;
+    margin-top: 3rem;
 }
 
 .first_h2 {
@@ -139,5 +166,5 @@ textarea {
 }
 
 .str {
-    color: rgb(74, 197, 25);
+    color: #00d061;
 }
