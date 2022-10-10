@@ -1,0 +1,98 @@
+/*Tablero de 18 x 11*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.periodic_table {
+  width: 85%;
+  max-width: 85vw;
+  height: 85%;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(11, 8%);
+  grid-template-rows: repeat(11,6rem);
+  gap: 0.5rem;
+}
+
+.first_row {
+    display: grid;
+    width: 100%;
+    grid-column-start: span 11;
+    grid-template-areas: "el1 el2";
+}
+
+.medium_row {
+    display: grid;
+    width: 100%;
+    grid-column-start: span 11;
+    grid-template-areas: "grp1 . grp2";
+}
+
+.row {
+    display: flex;
+    width: 74rem;
+}
+
+.element {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    width: 6rem;
+    height: 6rem;
+    background: red;
+}
+
+.el1 {
+    grid-area: el1;
+}
+
+.el2 {
+    grid-area: el2;
+    justify-self: end;
+}
+
+.grp1 {
+    display: flex;
+    grid-area: grp1;
+    gap: 0.5rem;
+}
+
+.grp2 {
+    display: flex;
+    grid-area: grp2;
+    justify-self: end;
+    gap: 0.5rem;
+}
+
+.atomic_mass {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.space {
+    margin-bottom: 0.7rem;
+}
+
+.center {
+    margin-top: 0.5rem;
+}
+
+.element p {
+    text-align: center;
+}
