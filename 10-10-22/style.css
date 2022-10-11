@@ -9,73 +9,98 @@ html,
 body {
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
+}
+
+:root {
+    --nobel_gas: hsl(151deg 100% 21%);
+    --halogen: hsl(68deg 64% 43%);
+    --transition_metals: hsl(200deg 100% 40%);
+    --metalloid: hsl(348deg 85% 51%);
+    --other_metals: hsl(301deg 60% 29%);
+    --transtion_metals: hsl(348deg 85% 51%);
+    --no_metals: hsl(27deg 91% 55%);
+    --alkaline_earths: hsl(43deg 98% 53%);
+    --alkaline_metals: hsl(208deg 100% 15%);
+    --lanthanides: hsl(348deg 85% 51%);
+    --actinides: hsl(149deg 25% 52%);
+
 }
 
 h1 {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .periodic_table {
-  width: 85%;
-  max-width: 85vw;
+  width: 90vw;
   height: 85%;
   display: grid;
   margin: 0 auto;
   grid-template-columns: repeat(11, 8%);
   grid-template-rows: repeat(11,6rem);
-  gap: 0.5rem;
-}
-
-.first_row {
-    display: grid;
-    width: 100%;
-    grid-column-start: span 11;
-    grid-template-areas: "el1 el2";
-}
-
-.medium_row {
-    display: grid;
-    width: 100%;
-    grid-column-start: span 11;
-    grid-template-areas: "grp1 . grp2";
+  grid-auto-flow: column;
 }
 
 .row {
     display: flex;
-    width: 74rem;
+    width: inherit;
+    justify-content: space-between;
 }
+
 
 .element {
     display: flex;
     flex-direction: column;
     align-items:center;
     justify-content: center;
-    width: 6rem;
-    height: 6rem;
+    width: 5vw;
+    height: 10vh;
     background: red;
+    color: #fff;
+    border: 3px solid white;
 }
 
-.el1 {
-    grid-area: el1;
+.nobel_gas {
+    background: var(--nobel_gas);
 }
 
-.el2 {
-    grid-area: el2;
-    justify-self: end;
+.no_metal {
+    background: var(--no_metals);
+    color: #000;
 }
+
+.alkaline_metal {
+    background: var(--alkaline_metals);
+}
+
+.alkaline_earth {
+    background: var(--alkaline_earths);
+}
+
+.metalloid {
+    background: var(--metalloid);
+}
+
+.halogen {
+    background: var(--halogen);
+    color: #000;
+}
+
+.other_metal {
+    background: var(--other_metals);
+}
+
 
 .grp1 {
     display: flex;
-    grid-area: grp1;
-    gap: 0.5rem;
+    /* gap: 0.5rem; */
 }
 
 .grp2 {
     display: flex;
-    grid-area: grp2;
     justify-self: end;
-    gap: 0.5rem;
+    /* gap: 0.5rem; */
 }
 
 .atomic_mass {
