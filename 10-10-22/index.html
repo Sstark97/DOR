@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Tabla Periódica</title>
 </head>
@@ -29,7 +32,7 @@
                     <span>12</span>
                     <span>4.00</span>
                 </div>
-                <p class="space center">HE</p>
+                <p class="space center">He</p>
                 <p class="space">Helio</p>
             </div>
         </div>
@@ -43,7 +46,7 @@
                     <p class="space center">Li</p>
                     <p class="space">Litio</p>
                 </div>
-    
+
                 <div class="element alkaline_earth">
                     <div class="atomic_mass">
                         <span>4</span>
@@ -63,7 +66,7 @@
                     <p class="space center">B</p>
                     <p class="space">Boro</p>
                 </div>
-    
+
                 <div class="element no_metal">
                     <div class="atomic_mass">
                         <span>6</span>
@@ -121,7 +124,7 @@
                     <p class="space center">Na</p>
                     <p class="space">Sodio</p>
                 </div>
-    
+
                 <div class="element alkaline_earth">
                     <div class="atomic_mass">
                         <span>12</span>
@@ -150,7 +153,7 @@
                     <p class="space center">Si</p>
                     <p class="space">Silicio</p>
                 </div>
-    
+
                 <div class="element">
                     <div class="atomic_mass">
                         <span>15</span>
@@ -249,7 +252,7 @@
                 <p class="space center">Mn</p>
                 <p class="space">Manganeso</p>
             </div>
-            
+
             <div class="element transition_metal">
                 <div class="atomic_mass">
                     <span>26</span>
@@ -397,7 +400,7 @@
                 <p class="space center">Mo</p>
                 <p class="space">Molibdeno</p>
             </div>
-            
+
             <div class="element transition_metal">
                 <div class="atomic_mass">
                     <span>43</span>
@@ -459,45 +462,45 @@
 
             <div class="element other_metal">
                 <div class="atomic_mass">
-                    <span>12</span>
-                    <span>4.00</span>
+                    <span>50</span>
+                    <span>118.7</span>
                 </div>
-                <p class="space center">HE</p>
-                <p class="space">Helio</p>
+                <p class="space center">Sn</p>
+                <p class="space">Estaño</p>
             </div>
-            <div class="element">
+            <div class="element metalloid">
                 <div class="atomic_mass">
-                    <span>1</span>
-                    <span>1.00</span>
+                    <span>51</span>
+                    <span>121.8</span>
                 </div>
-                <p class="space center">H</p>
-                <p class="space">Hidrogéno</p>
-            </div>
-
-            <div class="element">
-                <div class="atomic_mass">
-                    <span>12</span>
-                    <span>4.00</span>
-                </div>
-                <p class="space center">HE</p>
-                <p class="space">Helio</p>
-            </div>
-            <div class="element">
-                <div class="atomic_mass">
-                    <span>1</span>
-                    <span>1.00</span>
-                </div>
-                <p class="space center">H</p>
-                <p class="space">Hidrogéno</p>
+                <p class="space center">Sb</p>
+                <p class="space">Antimonio</p>
             </div>
 
-            <div class="element">
+            <div class="element metalloid">
                 <div class="atomic_mass">
-                    <span>12</span>
-                    <span>4.00</span>
+                    <span>52</span>
+                    <span>127.6</span>
                 </div>
-                <p class="space center">HE</p>
-                <p class="space">Helio</p>
+                <p class="space center">Te</p>
+                <p class="space">Teluro</p>
+            </div>
+            <div class="element halogen">
+                <div class="atomic_mass">
+                    <span>53</span>
+                    <span>126.9</span>
+                </div>
+                <p class="space center">I</p>
+                <p class="space">Yodo</p>
+            </div>
+
+            <div class="element nobel_gas">
+                <div class="atomic_mass">
+                    <span>54</span>
+                    <span>131.3</span>
+                </div>
+                <p class="space center">Xe</p>
+                <p class="space">Xenón</p>
             </div>
         </div>
 
@@ -521,7 +524,8 @@
             </div>
             <div class="element transition_metal">
                 <div class="atomic_mass">
-                    <span>57-71</span>
+                    <span>57</span>
+                    <span>71</span>
                 </div>
                 <p class="space center">La-Lu</p>
                 <p class="space">Lantánidos</p>
@@ -676,7 +680,8 @@
             </div>
             <div class="element transition_metal">
                 <div class="atomic_mass">
-                    <span>89 - 103</span>
+                    <span>89</span>
+                    <span>103</span>
                 </div>
                 <p class="space center">Ac-Lr</p>
                 <p class="space">Actínidos</p>
@@ -1054,6 +1059,82 @@
                 <p class="space">Nobelio</p>
             </div>
         </div>
+
+        <div class="legend">
+            <div class="element big no_metal">
+                <div class="atomic_mass">
+                    <span>8</span>
+                    <span>15.9</span>
+                </div>
+                <p class="space center">O</p>
+                <p class="space">Oxígeno</p>
+
+                <div id="atomic_legend">
+                    <p>Número <br> atómico</p>
+                    <div class="atomic_line"></div>
+                </div>
+
+                <div id="symbol_legend">
+                    <p>Simbolo Químico</p>
+                    <div class="symbol_line"></div>
+                </div>
+
+                <div id="mass_legend">
+                    <div class="mass_line"></div>
+                    <p>Masa <br> atómica</p>
+                </div>
+
+                <div id="name_legend">
+                    <div class="name_line"></div>
+                    <p>Nombre</p>
+                </div>
+            </div>
+
+            <div class="elements_legend">
+                <div>
+                    <div class="small nobel_gas"></div>
+                    <p class="space">Gases nobles</p>
+                </div>
+                <div>
+                    <div class="small halogen"></div>
+                    <p class="space">Halógenos</p>
+                </div>
+                <div>
+                    <div class="small no_metal"></div>
+                    <p class="space">No metales</p>
+                </div>
+                <div>
+                    <div class="small metalloid"></div>
+                    <p class="space">Metaloides</p>
+                </div>
+                <div>
+                    <div class="small other_metal"></div>
+                    <p class="space">Otros metales</p>
+                    
+                </div>
+                <div>
+                    <div class="small transition_metal"></div>
+                    <p class="space">Metales de transición</p>
+                </div>
+                <div>
+                    <div class="small alkaline_earth"></div>
+                    <p class="space">Alcalinotérreos</p>
+                </div>
+                <div>
+                    <div class="small alkaline_metal"></div>
+                    <p class="space">Metales alcalinos</p>
+                </div>
+                <div>
+                    <div class="small lanthanide"></div>
+                    <p class="space">Lantánidos</p>
+                </div>
+                <div>
+                    <div class="small actinide"></div>
+                    <p class="space">Actinidos</p>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
+
 </html>
