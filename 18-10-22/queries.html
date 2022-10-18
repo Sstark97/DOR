@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./style.css">
+    <title>Bootstrap Eventos</title>
+</head>
+
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#register">Registrarse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./queries.html">Administración de Usuarios</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="container py-5">
+        <div class="row">
+            <div class="col">
+                <form class="d-flex justify-content-evenly">
+                    <input type="text" class="form-control w-75" placeholder="nombre de usuario a buscar">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col">
+                <p class="text-secondary ms-4">Buscar usuario</p>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="card">
+                <div class="card-body d-flex align-items-center">
+                    <div class="d-flex w-75">
+                        <img class="w-25 d-xxl-none img-fluid rounded-circle" src="./img/jhon_doe.jpg" alt="Jhon Doe">
+                        <img class="w-25 d-none d-xxl-flex img-fluid rounded-circle" src="./img/jhon_doe.jpg" alt="Jhon Doe">
+                        <div class="d-flex flex-column justify-content-center w-75 ms-3">
+                            <p class="fs-3 fw-bold">Jhon Doe</p>
+                            <p>Correo: jdoe@test.com</p>
+                            <p>Fecha de Nacimiento: 01-01-2001</p>
+                            <p>Sexo: Hombre</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-end justify-content-center w-25 h-100">
+                            <button class="btn btn-primary mb-3"><i class='bx bx-search' ></i></button>
+                            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#edit_jhon"><i class='bx bxs-pencil'></i></button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete_jhon"><i class='bx bxs-trash' ></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card mt-2">
+                <div class="card-body d-flex align-items-center">
+                    <div class="d-flex w-75">
+                        <img class="w-25 d-xxl-none img-fluid rounded-circle" src="./img/mary_rosemoore.jpg" alt="Jhon Doe">
+                        <img class="w-25 d-none d-xxl-flex img-fluid rounded-circle" src="./img/mary_rosemoore.jpg" alt="Jhon Doe">
+                        <div class="d-flex flex-column justify-content-center  w-75 ms-3">
+                            <p class="fs-3 fw-bold">Mary Rosemoore</p>
+                            <p>Correo: mary@test.com</p>
+                            <p>Fecha de Nacimiento: 01-01-2001</p>
+                            <p>Sexo: Mujer</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-end justify-content-center w-25 h-100">
+                            <button class="btn btn-primary mb-3"><i class='bx bx-search' ></i></button>
+                            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#edit_mary"><i class='bx bxs-pencil'></i></button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete_mary"><i class='bx bxs-trash' ></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="login" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog modal-dialog-centered-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-bold" id="loginLabel">Login</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <label for="exampleInputEmail1" class="form-label">Correo</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class='bx bxs-user'></i></span>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    placeholder="correo registrado" aria-describedby="emailHelp">
+                            </div>
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class='bx bxs-key'></i></span>
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                    placeholder="contraseña">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal"
+                                    aria-label="Close">Login</button>
+                                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    aria-label="Close">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p>No tienes cuenta! <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#register">Registrate aquí</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="register" tabindex="-1" aria-labelledby="registerLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog modal-dialog-centered-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-bold" id="registerLabel">Registrar Usuario</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="container">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Nombre o nombres">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Apellidos">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" placeholder="Tu correo">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Tu contraseña">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Confirmar contraseña">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="form-control">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Mujer
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault2" checked>
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Hombre
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="url" class="form-control" placeholder="Url de imagen de perfil">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal"
+                                    aria-label="Close">Registrarse</button>
+                                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    aria-label="Close">Close</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="delete_jhon" tabindex="-1" aria-labelledby="delete_jhonModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="delete_jhonModalLabel">Borrar Usuario</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>¿Desea borrar al usuario <span class="fw-bold">Jhon Doe</span>?</p>
+                  <div class=" w-75 ms-3">
+                    <p>Correo: jdoe@test.com</p>
+                    <p>Fecha de Nacimiento: 01-01-2001</p>
+                    <p>Sexo: Hombre</p>
+                </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Borrar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="delete_mary" tabindex="-1" aria-labelledby="delete_maryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="delete_maryModalLabel">Borrar Usuario</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>¿Desea borrar al usuario <span class="fw-bold">Mary Rosemoore</span>?</p>
+                  <div class=" w-75 ms-3">
+                    <p>Correo: mary@test.com</p>
+                    <p>Fecha de Nacimiento: 01-01-2001</p>
+                    <p>Sexo: Mujer</p>
+                </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Borrar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="edit_jhon" tabindex="-1" aria-labelledby="edit_jhonModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="edit_jhonModalLabel">Editar Usuario</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="container">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Nombre o nombres" value="Jhon">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Apellidos" value="Doe">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="email" class="form-control" placeholder="Tu correo" value="jdoe@test.com">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="password" class="form-control" placeholder="Tu contraseña" value="password">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="password" class="form-control" placeholder="Confirmar contraseña" value="password">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="date" class="form-control" value="2001-01-01">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="form-control">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Mujer
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Hombre
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="url" class="form-control" placeholder="Url de imagen de perfil" value="./img/jhon_doe">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning" data-bs-dismiss="modal"
+                    aria-label="Close">Guardar</button>
+                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal"
+                    aria-label="Close">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="edit_mary" tabindex="-1" aria-labelledby="edit_maryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="edit_maryModalLabel">Editar Usuario</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="container">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Nombre o nombres" value="Mary">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Apellidos" value="Rosemoore">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="email" class="form-control" placeholder="Tu correo" value="mary@test.com">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="password" class="form-control" placeholder="Tu contraseña" value="password">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="password" class="form-control" placeholder="Confirmar contraseña" value="password">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="date" class="form-control" value="2001-01-01">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="form-control">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault1" checked>
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Mujer
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Hombre
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="url" class="form-control" placeholder="Url de imagen de perfil" value="./img/mary_rosemoore">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning" data-bs-dismiss="modal"
+                    aria-label="Close">Guardar</button>
+                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal"
+                    aria-label="Close">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
