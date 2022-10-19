@@ -33,7 +33,7 @@ const eventAlert = (e, parent) => {
     const element = e.target
 
     if(element.nodeName === "INPUT") {
-        const exist = document.querySelector(".alert")
+        const exist = document.querySelector(`#${parent.id} .alert`)
 
         if(exist) {
             parent.removeChild(exist)
@@ -43,6 +43,13 @@ const eventAlert = (e, parent) => {
 
         const alert = createBootsrapAlert(`Has pulsado en el elemento ${message}`)
         parent.insertAdjacentElement("afterbegin", alert)
+
+        // Eliminamos el Alert despues de 3s
+        setTimeout(() => {
+            if(alert.isConnected) {
+                parent.removeChild(alert)
+            }
+        }, 3000)
     }
 }
 
