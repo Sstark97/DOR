@@ -9,7 +9,7 @@ import { messages } from "./const.js"
     const pAlert = document.createElement("p")
     const btnAlert = document.createElement("button")
 
-    alert.classList = "alert alert-warning alert-dismissible fade show"
+    alert.classList = "alert alert-primary alert-dismissible fade show"
     alert.role = "alert"
     alert.tabIndex = -1
 
