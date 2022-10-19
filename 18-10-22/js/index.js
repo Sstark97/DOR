@@ -1,30 +1,9 @@
 // Parte de DEW
-{/* <div class="alert alert-warning alert-dismissible fade" role="alert">
-<strong>Holy guacamole!</strong> You should check in on some of those fields below.
-<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div> */}
+import { eventAlert } from "./functions.js"
 
-/**
- * Funcion que nos genera un alert de Bootstrap
- * @return Componente Alert de Boostrap
- */
-const createBootsrapAlert = () => {
-    const alert = document.createElement("div")
-    const pAlert = document.createElement("p")
-    const btnAlert = document.createElement("button")
+const loginModal = document.querySelector("#loginModal")
+const registerModal = document.querySelector("#registerModal")
 
-    alert.classList = "alert alert-warning alert-dismissible fade show"
-    alert.role = "alert"
+loginModal.addEventListener("click", e => eventAlert(e, loginModal))
 
-    btnAlert.classList = "btn-close"
-    btnAlert.dataset.bsDismiss = "alert"
-    btnAlert.ariaLabel = "Close"
-
-    alert.append(pAlert, btnAlert)
-
-    return alert
-}
-
-const loginModal = document.querySelector("#login_modal")
-const inputsLogin = document.querySelectorAll("#login_modal input")
-
+registerModal.addEventListener("click", e => eventAlert(e, registerModal))
