@@ -1,4 +1,4 @@
-import { messages } from "./const.js"
+import { messages, validationOptions } from "./const.js"
 
 /**
  * Funcion que nos genera un alert de Bootstrap
@@ -53,7 +53,58 @@ const eventAlert = (e, parent) => {
     }
 }
 
+/**
+ * Función que nos genera las clases de bootsrap según las validaciones
+ * @param {*} value 
+ * @param {*} type 
+ * @returns 
+ */
+const validateForm = (value, type) => {
+    const result = {
+        parentClassList: "is-valid",
+        validationClasslist: "valid-feedback",
+        validationMessage: "Todo va bien!"
+    }
+
+    const message = validationOptions[type] ? validationOptions[type](value) : validationOptions["default"](value)
+
+    if(message !== "") {
+        result.parentClassList = "is-invalid"
+        result.validationClasslist = "invalid-feedback"
+        result.validationMessage = message
+    }
+
+    return result
+    
+}
+
+/**
+ * Evento de Validación que se ejecutará en el evento blur
+ * @param {*} e 
+ */
+const eventValidation = e => {
+    const element = e.target
+
+    if(element.nodeName === "INPUT") {
+        const { parentClassList, validationClasslist, validationMessage } = validateForm(element.value, element.type)
+
+        const exist = document.querySelector(`${element.nodeName.toLowerCase()} + div`)
+        if(exist) {
+            exist.remove()
+        }
+
+        const validation = document.createElement("div")
+        validation.classList = validationClasslist
+        validation.textContent = validationMessage
+
+        element.classList = `form-control ${parentClassList}`
+        element.insertAdjacentElement("afterend", validation)
+    }
+}
+
 export {
     createBootsrapAlert,
-    eventAlert
+    eventAlert,
+    eventValidation
+
 }
