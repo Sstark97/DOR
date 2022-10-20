@@ -106,5 +106,4 @@ export {
     createBootsrapAlert,
     eventAlert,
     eventValidation
-
 }
