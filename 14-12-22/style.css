@@ -1,3 +1,9 @@
+:root {
+    --primary: #adadad;
+    --secondary: #0071e3;
+    --font_family: 'Roboto', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +13,10 @@
 html, body {
     width: 100vw;
     height: 100vh;
+    font-family: var(--font_family);
 }
 
+/* Header Styles*/
 nav {
     width: 100%;
     background: #333333;
@@ -23,20 +31,99 @@ nav ul {
     list-style: none;
 }
 
+/* Hamburger Menu*/
 #hamburger_btn {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 2rem;
+    height: 2rem;
     border: 0;
     background: transparent;
     gap: .65rem;
 }
 
 #hamburger_btn > div {
-    background: #adadad;
+    background: var(--primary);
     height: 2px;
     width: 100%;
     border-radius: 5px;
+    transition: all .5;
+    transform-origin: left;
+}
+
+li i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+#hamburger_btn:hover div:first-child {
+    transform: rotate(50deg);
+    width: 100%;
+}
+
+#hamburger_btn:hover div:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger_btn:hover div:last-child {
+    transform: rotate(-50deg);
+}
+
+h1 {
+    text-align: center;
+    margin: 1rem 2rem 2rem 1rem;
+}
+
+p {
+    text-align: center;
+}
+
+#principal_features {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#principal_features > div img {
+    width: 13rem;
+}
+
+#principal_features > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .3rem;
+}
+
+#principal_features > div:first-child {
+    margin-bottom: 4rem;
+}
+
+.purchase_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+}
+
+.purchase_container button {
+    padding: .5rem 1rem .5rem 1rem;
+    border: 0;
+    border-radius: 1rem;
+    background: var(--secondary);
+    color: #fff;
+    font-size: 1rem;
+}
+
+.purchase_container a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-left: .5rem;
+}
+
+.h2_14_16 {
+    max-width: 13ch;
+    text-align: center;
 }
