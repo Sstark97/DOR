@@ -142,19 +142,21 @@ p {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     margin-top: 6rem;
     background: var(--terciary);
+    padding: 0 1.5rem 0 1.5rem;
 }
 
 .second_features > h2 {
+    width: 100%;
     padding: 3rem 0 2.5rem 0;
     text-align: center;
 }
 
 .second_features .mac_info {
-    width: 42%;
+    width: 48%;
     border-bottom: 2px solid #e9e9eb;
 }
 
@@ -229,4 +231,8 @@ p {
 
 .mac_info .specifications li:nth-child(11) {
     padding-bottom: 1.5rem;
+}
+
+.second_features .mac_info:last-child {
+    margin-top: 4rem;
 }
