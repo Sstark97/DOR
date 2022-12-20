@@ -141,7 +141,7 @@ a {
 }
 
 /* Second Features*/
-.second_features {
+#second_features {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -152,33 +152,33 @@ a {
     padding: 0 1.5rem 0 1.5rem;
 }
 
-.second_features > h2 {
+#second_features > h2 {
     width: 100%;
     padding: 3rem 0 2.5rem 0;
     text-align: center;
 }
 
-.second_features .mac_info {
+#second_features .mac_info {
     width: 48%;
     border-bottom: 2px solid #e9e9eb;
 }
 
-.second_features .mac_info img {
+#second_features .mac_img {
     width: 7rem;
 }
 
-.second_features .purchase_container {
+#second_features .purchase_container {
     flex-direction: column;
     border-bottom: 2px solid #e9e9eb;
 }
 
-.second_features .purchase_container button {
+#second_features .purchase_container button {
     padding: .35rem .6rem .35rem .6rem;
     font-size: .85rem;
     margin-bottom: .8rem;
 }
 
-.second_features .new {
+#second_features .new {
     font-size: .85rem;
     margin: .45rem 0 .05rem 0;
 }
@@ -201,6 +201,10 @@ a {
     border-radius: 50%;
     width: .8rem;
     height: .8rem;
+}
+
+.circles + h3 {
+    margin-top: 1.75rem;
 }
 
 .specifications {
@@ -236,8 +240,8 @@ a {
     padding-bottom: 1.5rem;
 }
 
-.second_features .mac_info:last-child {
-    margin-top: 4rem;
+#second_features .mac_info:nth-child(4) {
+    margin-top: 3.5rem;
 }
 
 #mac_links {
@@ -259,6 +263,11 @@ a {
     flex-direction: column;
     align-items: center;
     padding: 3rem;
+}
+
+#third_features h2 {
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
 #third_features * {

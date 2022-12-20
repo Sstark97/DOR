@@ -1,0 +1,92 @@
+/* Navbar */
+#hamburger_btn {
+    display: none;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 3rem 0 3rem 0;
+}
+
+/* Principal Features*/
+#principal_features {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#principal_features .mac_info:first-child {
+    margin-right: 5rem;
+}
+
+.h2_14_16 {
+    margin-top: 2rem;
+    max-width: none;
+}
+
+.mac_info img {
+    width: 24rem;
+}
+
+#principal_features .mac_info:last-child img{
+    width: 28rem;
+} 
+
+/* Second Features*/
+#second_features h2:first-child {
+    margin-top: 3rem;
+    font-size: 2.9rem;
+}
+
+#second_features {
+    justify-content: center;
+}
+
+#second_features .mac_info {
+    width: 19%;
+}
+
+#second_features .mac_img {
+    width: 11rem;
+    height: 7rem;
+}
+
+#second_features .mac_info:nth-child(4) {
+    margin-top: 0;
+}
+
+#second_features .mac_info {
+    border-bottom: none;
+}
+
+#second_features .purchase_container {
+    border-bottom: none;
+}
+
+.mac_info .specifications {
+    border-top: 2px solid #e9e9eb;
+    border-bottom: 2px solid #e9e9eb;
+}
+
+.mac_info .specifications li:nth-child(9) p {
+    max-width: 23ch;
+}
+
+#mac_links {
+    width: 100%;
+    flex-direction: row;
+}
+
+#mac_links a {
+    font-size: 1.3rem;
+}
+
+#mac_links a:first-child {
+    margin-right: 2.5rem;
+}
+
+/* Third Features*/
+#third_features {
+    flex-direction: row;
+    justify-content: space-evenly;
+}
