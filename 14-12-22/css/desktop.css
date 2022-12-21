@@ -1,6 +1,11 @@
 /* Navbar */
-#hamburger_btn {
+
+.mobile_nav {
     display: none;
+}
+
+.desktop_nav {
+    display: flex;
 }
 
 nav ul {
