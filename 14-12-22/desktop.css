@@ -62,6 +62,7 @@ h1 {
 /* Second Features*/
 #second_features h2:first-child {
     margin-top: 3rem;
+    margin-bottom: 2rem;
     font-size: 2.9rem;
 }
 
@@ -78,12 +79,26 @@ h1 {
     height: 7rem;
 }
 
+#second_features .mac_info:nth-child(3) {
+    margin: 0 2rem 0 2rem;
+}
+
 #second_features .mac_info:nth-child(4) {
     margin-top: 0;
 }
 
 #second_features .mac_info {
     border-bottom: none;
+}
+
+#second_features .mac_info li h4{
+    font-size: 1.3rem;
+}
+
+#second_features .mac_info li p{
+    margin-top: .5rem;
+    font-size: .9rem;
+    font-weight: 400;
 }
 
 #second_features .purchase_container {
@@ -121,11 +136,24 @@ h1 {
     width: 45.5%;
 }
 
+.other_info div a:hover {
+    text-decoration: underline;
+}
+
+.img_info .text_info {  
+    width: 75%;
+}
+
 /* Third Features*/
 #third_features {
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 8.5rem 3rem 8.5rem 3rem;
+    padding: 6.5rem 3rem 8.5rem 3rem;
+    font-size: 1.3rem;
+}
+
+#third_features div p {
+    max-width: 37ch;
 }
 
 /* Footer */
