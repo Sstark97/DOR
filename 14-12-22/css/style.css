@@ -1,435 +1,481 @@
 :root {
-    --primary: #adadad;
-    --secondary: #0071e3;
-    --terciary: #fafafa;
-    --links: #f5f5f7;
-    --font_family: 'Roboto', sans-serif;
+  --primary: #adadad;
+  --secondary: #0071e3;
+  --terciary: #fafafa;
+  --links: #f5f5f7;
+  --font_family: "Roboto", sans-serif;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-html, body {
-    width: 100vw;
-    height: 100vh;
-    font-family: var(--font_family);
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--font_family);
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 /* Header Styles*/
 nav {
-    width: 100%;
-    background: #333333;
-    padding: .5rem;
+  width: 100%;
+  background: #333333;
+  padding: 0.5rem;
 }
 
 nav ul {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
 }
 
 .desktop_nav {
-    display: none;
+  display: none;
 }
 
 .mobile_nav {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 /* Hamburger Menu*/
 #hamburger li:first-child {
-    display: flex;
+  display: flex;
 }
 
-#hamburger i:nth-child(2){
-    display: none;
+#hamburger i:nth-child(2) {
+  display: none;
 }
 
-#hamburger input[type = "checkbox"] {
-    opacity: 0.00001;
+#hamburger input[type="checkbox"] {
+  opacity: 0.00001;
 }
 
 #hamburger_menu {
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 
-    position: fixed;
-    left: 0;
-    z-index: 2;
+  position: fixed;
+  left: 0;
+  z-index: 2;
 
-    background: #000;
-    border-top: 1px solid var(--primary);
-    padding-top: 1rem;
+  background: #000;
+  border-top: 1px solid var(--primary);
+  padding-top: 1rem;
 }
 
 .dark_nav {
-    background: #000;
+  background: #000;
 }
 
-#hamburger:has(input[type = "checkbox"]:checked) .bx-x{
-    display: block;
+#hamburger:has(input[type="checkbox"]:checked) .bx-x {
+  display: block;
 }
 
-#hamburger:has(input[type = "checkbox"]:checked) .bx-menu{
-    display: none;
+#hamburger:has(input[type="checkbox"]:checked) .bx-menu {
+  display: none;
 }
 
-#hamburger:has(input[type = "checkbox"]:checked) + #hamburger_menu {
-    display: flex;
+#hamburger:has(input[type="checkbox"]:checked) + #hamburger_menu {
+  display: flex;
 }
 
 #hamburger_menu li {
-    width: 80%;
-    margin: 1rem 0 1rem 2.5rem;
-    padding-bottom: .5rem;
-    border-bottom: 1px solid var(--primary);
+  width: 80%;
+  margin: 1rem 0 1rem 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--primary);
 }
 
-#hamburger_menu a{
-    color: var(--links);
-    opacity: .8;
-    font-weight: 200;
-    font-size: 1.1rem;
+#hamburger_menu a {
+  color: var(--links);
+  opacity: 0.8;
+  font-weight: 200;
+  font-size: 1.1rem;
+}
+
+/* Dark Mode */
+#dark_mode {
+  display: flex;
+  align-items: center;
+  color: var(--links);
+  opacity: 0.8;
+}
+
+#dark_mode p {
+  text-align: start;
+  margin: 0 .7rem 0 .4rem;
+}
+
+.apple-switch {
+  position: relative;
+  -webkit-appearance: none;
+  outline: none;
+  width: 50px;
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #d9dadc;
+  border-radius: 50px;
+  box-shadow: inset -20px 0 0 0 #fff;
+}
+
+.apple-switch:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  background: transparent;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.apple-switch:checked {
+  box-shadow: inset 20px 0 0 0 #4ed164;
+  border-color: #4ed164;
+}
+
+.apple-switch:checked:after {
+  left: 20px;
+  box-shadow: -2px 4px 3px rgba(0, 0, 0, 0.05);
 }
 
 li i {
-    font-size: 1.5rem;
-    color: var(--primary);
+  font-size: 1.5rem;
+  color: var(--primary);
 }
 
-
 h1 {
-    text-align: center;
-    margin: 1rem 2rem 2rem 1rem;
+  text-align: center;
+  margin: 1rem 2rem 2rem 1rem;
 }
 
 p {
-    text-align: center;
+  text-align: center;
 }
 
-
 a {
-    text-decoration: none;
-    color: var(--secondary);
-    font-size: 1rem;
-    margin-left: .5rem;
+  text-decoration: none;
+  color: var(--secondary);
+  font-size: 1rem;
+  margin-left: 0.5rem;
 }
 
 #principal_features {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mac_info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .mac_info img {
-    width: 13rem;
+  width: 13rem;
 }
 
 .new {
-    color: #bf4800;
+  color: #bf4800;
 }
 
 #principal_features > div:first-child {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 
 .purchase_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
 }
 
 .purchase_container button {
-    padding: .5rem 1rem .5rem 1rem;
-    border: 0;
-    border-radius: 1rem;
-    background: var(--secondary);
-    color: #fff;
-    font-size: 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border: 0;
+  border-radius: 1rem;
+  background: var(--secondary);
+  color: #fff;
+  font-size: 1rem;
 }
 
 .h2_14_16 {
-    max-width: 13ch;
-    text-align: center;
+  max-width: 13ch;
+  text-align: center;
 }
 
 /* Second Features*/
 #second_features {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 6rem;
-    background: var(--terciary);
-    padding: 0 1.5rem 0 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6rem;
+  background: var(--terciary);
+  padding: 0 1.5rem 0 1.5rem;
 }
 
 #second_features > h2 {
-    width: 100%;
-    padding: 3rem 0 2.5rem 0;
-    text-align: center;
+  width: 100%;
+  padding: 3rem 0 2.5rem 0;
+  text-align: center;
 }
 
 #second_features .mac_info {
-    width: 48%;
-    border-bottom: 2px solid #e9e9eb;
+  width: 48%;
+  border-bottom: 2px solid #e9e9eb;
 }
 
 #second_features .mac_img {
-    width: 7rem;
+  width: 7rem;
 }
 
 #second_features .purchase_container {
-    flex-direction: column;
-    border-bottom: 2px solid #e9e9eb;
+  flex-direction: column;
+  border-bottom: 2px solid #e9e9eb;
 }
 
 #second_features .purchase_container button {
-    padding: .35rem .6rem .35rem .6rem;
-    font-size: .85rem;
-    margin-bottom: .8rem;
+  padding: 0.35rem 0.6rem 0.35rem 0.6rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
 }
 
 #second_features .new {
-    font-size: .85rem;
-    margin: .45rem 0 .05rem 0;
+  font-size: 0.85rem;
+  margin: 0.45rem 0 0.05rem 0;
 }
 
 .circles {
-    display: flex;
-    margin-top: 0.4rem;
+  display: flex;
+  margin-top: 0.4rem;
 }
 
 .gray_circle {
-    background: #7d7e80;
-    border-radius: 50%;
-    width: .8rem;
-    height: .8rem;
-    margin-right: 0.5rem;
+  background: #7d7e80;
+  border-radius: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 0.5rem;
 }
 
 .white_circle {
-    background: #e3e4e6;
-    border-radius: 50%;
-    width: .8rem;
-    height: .8rem;
+  background: #e3e4e6;
+  border-radius: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
 }
 
 .circles + h3 {
-    margin-top: 1.75rem;
+  margin-top: 1.75rem;
 }
 
 .specifications {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.specifications li{
-    text-align: center;
-    margin-top: 1.8rem;
+.specifications li {
+  text-align: center;
+  margin-top: 1.8rem;
 }
 
 .mac_info .specifications li img {
-    width: 3rem;
+  width: 3rem;
 }
 
 .mac_info .specifications p {
-    font-weight: 400;
-    font-size: 0.762rem;
+  font-weight: 400;
+  font-size: 0.762rem;
 }
 
 .mac_info .specifications li .chips {
-    width: 2.5rem;
+  width: 2.5rem;
 }
 
 .mac_info .specifications li .chips_m1 {
-    width: 5.5rem;
+  width: 5.5rem;
 }
 
 .mac_info .specifications li:nth-child(11) {
-    padding-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 #second_features .mac_info:nth-child(4) {
-    margin-top: 3.5rem;
+  margin-top: 3.5rem;
 }
 
 /* Other info */
 .other_info {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .other_info div {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1.5rem;
-    background: #f2f2f2;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  background: #f2f2f2;
 }
 
 .other_info div h2 {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .other_info div h3 {
-    font-size: 2rem;
-    text-align: center;
-    margin: 1rem 0 1rem 0;
-    max-width: 18ch;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+  max-width: 18ch;
 }
 
 .other_info div a {
-    margin: 4rem 0 2rem 0;
+  margin: 4rem 0 2rem 0;
 }
 
 .other_info div:first-child a {
-    color: #fff;
-    background: var(--secondary);
-    padding: .5rem 1rem .5rem 1rem;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
+  color: #fff;
+  background: var(--secondary);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
 }
 
 .other_info div img {
-    width: 70%;
-    height: auto;
-    object-fit: cover;
+  width: 70%;
+  height: auto;
+  object-fit: cover;
 }
 
 .other_info div:first-child img {
-    width: 93%;
+  width: 93%;
 }
 
 .other_info .img_info {
-    position: relative;
+  position: relative;
 }
 
 .img_info .text_info {
-    position: absolute;
-    bottom: 29%;
-    background: transparent;
-    color: #fff;
+  position: absolute;
+  bottom: 29%;
+  background: transparent;
+  color: #fff;
 }
 
 .img_info .text_info p {
-    text-align: center;
-    max-width: 27ch;
-    margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 27ch;
+  margin-bottom: 1.5rem;
 }
 
 .img_info .text_info a {
-    color: #fff;
-    margin: 0;
-    margin-top: .5rem;
+  color: #fff;
+  margin: 0;
+  margin-top: 0.5rem;
 }
 
 .other_info .img_info img {
-    width: 100%;
-    height: 31rem;
+  width: 100%;
+  height: 31rem;
 }
 
 /* Mac Links*/
 
 #mac_links {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    padding: 2rem 0 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 2rem 0 3rem 0;
 }
 
 #mac_links a {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
 /* Third Features */
 #third_features {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
 }
 
 #third_features h2 {
-    font-weight: 600;
-    font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 #third_features * {
-    margin-top: .7rem;
+  margin-top: 0.7rem;
 }
 
 #third_features > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #third_features i {
-    font-size: 3rem;
-    color: #c6c6c6;
+  font-size: 3rem;
+  color: #c6c6c6;
 }
 
 /* Footer */
 footer {
-    background: #f5f5f7;
-    padding: 3rem;
+  background: #f5f5f7;
+  padding: 3rem;
 }
 
 #social_media_container {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .social_media_item {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 #others {
-    margin-top: 1rem;
-    font-size: .8rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
 }
 
 #links_container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 #links_container span {
-    width: 45%;
-    text-align: start;
+  width: 45%;
+  text-align: start;
 }
