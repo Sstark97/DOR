@@ -3,6 +3,33 @@
     display: none;
 }
 
+nav ul {
+    width: 65%;
+}
+
+nav ul li {
+    opacity: .7;
+}
+
+nav ul li:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+nav ul li a {
+    font-size: .8rem;
+    color: var(--links);
+}
+
+nav ul li i {
+    margin-top: .3rem;
+    font-size: 1.2rem;
+}
+
+.li_hidden {
+    display: block;
+}
+
 h1 {
     font-size: 4rem;
     margin: 3rem 0 3rem 0;
@@ -85,8 +112,47 @@ h1 {
     margin-right: 2.5rem;
 }
 
+/* Other info */
+.other_info {
+    justify-content: space-evenly;
+}
+
+.other_info div {
+    width: 45.5%;
+}
+
 /* Third Features*/
 #third_features {
     flex-direction: row;
     justify-content: space-evenly;
+    padding: 8.5rem 3rem 8.5rem 3rem;
+}
+
+/* Footer */
+#social_media_container {
+    justify-content: center;
+}
+
+.social_media_item {
+    opacity: .7;
+    font-size: 1.8rem;
+    margin-right: 2rem;
+}
+
+.social_media_item:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#links_container {
+    flex-wrap: nowrap;
+}
+
+
+#links_container span {
+    width: 25%;
+    text-align: end;
+}
+#others {
+    margin-top: 2rem;
 }

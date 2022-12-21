@@ -2,6 +2,7 @@
     --primary: #adadad;
     --secondary: #0071e3;
     --terciary: #fafafa;
+    --links: #f5f5f7;
     --font_family: 'Roboto', sans-serif;
 }
 
@@ -36,6 +37,10 @@ nav ul {
     justify-content: space-between;
     align-items: center;
     list-style: none;
+}
+
+.li_hidden {
+    display: none;
 }
 
 /* Hamburger Menu*/
@@ -244,6 +249,85 @@ a {
     margin-top: 3.5rem;
 }
 
+/* Other info */
+.other_info {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.other_info div {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+    background: #f2f2f2;
+}
+
+.other_info div h2 {
+    margin-top: 2rem;
+}
+
+.other_info div h3 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+    max-width: 18ch;
+}
+
+.other_info div a {
+    margin: 4rem 0 2rem 0;
+}
+
+.other_info div:first-child a {
+    color: #fff;
+    background: var(--secondary);
+    padding: .5rem 1rem .5rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+
+.other_info div img {
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+}
+
+.other_info div:first-child img {
+    width: 93%;
+}
+
+.other_info .img_info {
+    position: relative;
+}
+
+.img_info .text_info {
+    position: absolute;
+    bottom: 29%;
+    background: transparent;
+    color: #fff;
+}
+
+.img_info .text_info p {
+    text-align: center;
+    max-width: 27ch;
+    margin-bottom: 1.5rem;
+}
+
+.img_info .text_info a {
+    color: #fff;
+    margin: 0;
+    margin-top: .5rem;
+}
+
+.other_info .img_info img {
+    width: 100%;
+    height: 31rem;
+}
+
+/* Mac Links*/
+
 #mac_links {
     display: flex;
     flex-direction: column;
@@ -282,6 +366,7 @@ a {
 
 #third_features i {
     font-size: 3rem;
+    color: #c6c6c6;
 }
 
 /* Footer */
@@ -296,9 +381,6 @@ footer {
 }
 
 .social_media_item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     font-size: 1.5rem;
 }
 
