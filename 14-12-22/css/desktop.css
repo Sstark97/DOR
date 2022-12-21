@@ -40,6 +40,25 @@ h1 {
     margin: 3rem 0 3rem 0;
 }
 
+/* Dark Mode */
+#dark_mode p {
+    font-size: .8rem;
+}
+
+#dark_mode_desktop {
+    width: 35px;
+    height: 20px;
+}
+
+#dark_mode_desktop::after {
+    width: 16px;
+    height: 16px;
+}
+
+#dark_mode_desktop:checked {
+    box-shadow: inset 15px 0 0 0 #4ed164;
+}
+
 /* Principal Features*/
 #principal_features {
     flex-direction: row;
