@@ -1,3 +1,12 @@
+# Node modules
 node_modules
 /node_modules
 ./node_modules
+
+# Media Files
+./media
+./media/**/*
+/media
+/media/**/*
+media
+media/**/*
