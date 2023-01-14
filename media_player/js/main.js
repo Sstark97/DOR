@@ -1,58 +1,32 @@
+import { formatTime } from "./functions.js"
+import { videoActions } from "./const.js"
+
 const main = document.querySelector("main")
 const video = document.querySelector("video")
 const controls = document.querySelector("#controls")
-const playBtn = document.querySelector("#play")
 const timeProgress = document.querySelector("#timeProgress")
 const videoDuration = document.querySelector("#duration")
-const fullScrennBtn = document.querySelector("#fullscreen")
 const volumeControl = document.querySelector("#volumeControl")
 
-console.log(video)
+controls.addEventListener("click", e => {
+    const element = e.target
 
-const formatTime = time => {
-    let seconds = Math.floor(time % 60),
-    minutes = Math.floor(time / 60) % 60,
-    hours = Math.floor(time / 3600);
+    videoActions[element.id](video, element)
+})
 
-    seconds = seconds < 10 ? `0${seconds}` : seconds;
-    minutes = minutes < 10 ? `0${minutes}` : minutes;
-    hours = hours < 10 ? `0${hours}` : hours;
+volumeControl.addEventListener("change", () => {
+    const volumeIcon = volumeControl.parentElement.previousElementSibling
+    volumeIcon.className = volumeControl.value > 0 ? volumeIcon.className.replace("bxs-volume-mute", "bxs-volume-full") : volumeIcon.className.replace("bxs-volume-full", "bxs-volume-mute")
 
-    if(hours == 0) {
-        return `${minutes}:${seconds}`
-    }
-    return `${hours}:${minutes}:${seconds}`;
-}
-
-volumeControl.addEventListener("change", e => {
-    console.log(volumeControl.value)
     video.volume = volumeControl.value * 0.01
 })
 
 video.addEventListener("timeupdate", e => {
-    let {currentTime, duration} = e.target;
-    let percent = (currentTime / duration) * 100;
+    const { currentTime, duration } = e.target;
+    const percent = (currentTime / duration) * 100;
     timeProgress.style.width = `${percent}%`;
     videoDuration.textContent = formatTime(currentTime);
 });
-
-playBtn.addEventListener("click", () => {
-    const playIcon = playBtn.firstChild.nextSibling
-
-    if(video.paused) {
-        playIcon.className = playIcon.className.replace("bx-play", "bx-pause")
-        video.play()
-    } else {
-        playIcon.className = playIcon.className.replace("bx-pause", "bx-play")
-        video.pause()
-    }
-})
-
-fullScrennBtn.addEventListener("click", () => {
-    if (video.requestFullscreen) {
-        video.requestFullscreen();
-    }
-})
 
 // window.addEventListener("load", ()=> {
 //     const videoPlayer = document.createElement("video")
