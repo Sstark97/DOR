@@ -4,6 +4,7 @@ const controls = document.querySelector("#controls")
 const playBtn = document.querySelector("#play")
 const timeProgress = document.querySelector("#timeProgress")
 const videoDuration = document.querySelector("#duration")
+const fullScrennBtn = document.querySelector("#fullscreen")
 
 console.log(video)
 
@@ -38,6 +39,12 @@ playBtn.addEventListener("click", () => {
     } else {
         playIcon.className = playIcon.className.replace("bx-pause", "bx-play")
         video.pause()
+    }
+})
+
+fullScrennBtn.addEventListener("click", () => {
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
     }
 })
 
