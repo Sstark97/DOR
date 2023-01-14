@@ -5,6 +5,7 @@ const playBtn = document.querySelector("#play")
 const timeProgress = document.querySelector("#timeProgress")
 const videoDuration = document.querySelector("#duration")
 const fullScrennBtn = document.querySelector("#fullscreen")
+const volumeControl = document.querySelector("#volumeControl")
 
 console.log(video)
 
@@ -22,6 +23,11 @@ const formatTime = time => {
     }
     return `${hours}:${minutes}:${seconds}`;
 }
+
+volumeControl.addEventListener("change", e => {
+    console.log(volumeControl.value)
+    video.volume = volumeControl.value * 0.01
+})
 
 video.addEventListener("timeupdate", e => {
     let {currentTime, duration} = e.target;
