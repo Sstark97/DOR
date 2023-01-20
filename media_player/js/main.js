@@ -1,6 +1,10 @@
 import { formatTime } from "./functions.js"
 import { videoActions, videos } from "./const.js"
 
+const navPlayer = document.querySelector("nav")
+const videoContainer = document.querySelector("#videoContainer")
+const audioContainer = document.querySelector("#audioContainer")
+
 const trackList = document.querySelector("#trackList")
 const video = document.querySelector("video")
 const controls = document.querySelector("#controls")
@@ -35,6 +39,18 @@ window.addEventListener("load", () => {
     })
 
     trackList.append(...tracks)
+})
+
+navPlayer.addEventListener("click", e => {
+    const element = e.target
+
+    if(element.id === "video") {
+        videoContainer.classList.remove("hidden")
+        audioContainer.classList.add("hidden")
+    } else if(element.id === "audio") {
+        videoContainer.classList.add("hidden")
+        audioContainer.classList.remove("hidden")
+    }
 })
 
 controls.addEventListener("click", e => {
