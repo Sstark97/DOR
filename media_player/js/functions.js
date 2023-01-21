@@ -30,7 +30,7 @@ const createTrackList = () => {
 
     poster.id = track.id;
 
-    trackWrapper.className = "flex hover:cursor-pointer";
+    trackWrapper.className = "flex justify-center hover:cursor-pointer";
     trackInfo.className = "ml-5";
     poster.className = "w-[35%] rounded";
     title.className = "max-w-[20ch] font-bold";
@@ -57,7 +57,8 @@ const changeMediaPoster = (mediaElement, type, id) => {
 };
 
 const changeTrackList = (mediaElement, type, id) => {
-  const source = mediaElement.firstElementChild;
+  const firstSource = mediaElement.firstElementChild;
+  const secondSource = firstSource.nextElementSibling;
   const playIcon = document.querySelector(`#${type}Controls #play`);
   const info = document.querySelector(`#${type}Info`);
   const timeProgress = document.querySelector(`#${type}TimeProgress`);
@@ -67,7 +68,8 @@ const changeTrackList = (mediaElement, type, id) => {
 
   info.firstElementChild.textContent = media[id].title;
   info.lastElementChild.textContent = media[id].author;
-  source.src = type === "video" ? media[id].videoSrc : media[id].audioSrc;
+  firstSource.src = type === "video" ? media[id].videoSrc[0] : media[id].audioSrc[0];
+  secondSource.src = type === "video" ? media[id].videoSrc[1] : media[id].audioSrc[1];
 
   changeMediaPoster(mediaElement, type, id);
   mediaElement.load();
