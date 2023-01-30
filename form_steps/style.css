@@ -27,6 +27,13 @@ body, html {
 
 body {
     background: var(--magnolia);
+    overflow: hidden;
+}
+
+#form-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 header {
@@ -35,6 +42,8 @@ header {
 
     position: relative;
     background-image: url("assets/images/bg-sidebar-mobile.svg");
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
 }
 
 nav {
@@ -47,11 +56,19 @@ nav {
     left: 20%;
 }
 
-nav div {
+.nav-item {
+    color: var(--white);
+}
+
+.nav-item div:first-child {
     color: var(--white);
     border: 1px solid  var(--white);
     border-radius: 1.2rem;
     padding: .5rem .75rem;
+}
+
+.nav-item-info {
+    display: none;
 }
 
 main {
@@ -118,6 +135,9 @@ footer button {
     border: none;
     border-radius: .25rem;
     padding: .8rem;
+
+    display: flex;
+    align-items: center;
 }
 
 #form-header {
@@ -140,4 +160,107 @@ footer button {
 
 .fields::placeholder {
     color: var(--cool_gray);
+}
+
+@media screen and (min-width: 1440px){
+    #form-container {
+        display: flex;
+
+        width: 75%;
+        height: 58%;
+
+        margin: 0 auto;
+        margin-top: 8rem;
+        padding: .8rem;
+
+        background: var(--white);
+        border-radius: .5rem;
+
+        font-size: 1.1rem;
+    }
+
+    main, header{
+        position:initial;
+    }
+
+    header {
+        width: 20%;
+        height: 100%;
+        background-image: url("assets/images/bg-sidebar-desktop.svg");
+        border-radius: .5rem;
+    }
+
+    header nav {
+        width: 100%;
+        position: initial;
+        flex-direction: column;
+
+        margin-top: 1.5rem;
+    }
+
+    .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 95%;
+        padding: 0;
+        border: 0;
+
+        font-size: .8rem;
+    }
+
+    .nav-item div:first-child {
+        margin: 0 1.5rem;
+    }
+
+    .nav-item-info {
+        display: block;
+    }
+
+    .nav-item-info p:first-child {
+        font-size: .7rem;
+        color: var(--cool_gray);
+    }
+
+    .nav-item-info p {
+        margin: .7rem 0;
+    }
+
+    .labels {
+        margin-bottom: .4rem;
+    }
+
+    main {
+        height: 100%;
+        padding: 0 6rem;
+
+        box-shadow: none;
+    }
+
+    main p {
+        max-width: none;
+    }
+
+    #form-header {
+        padding: 0 1.8rem;
+        margin: 2rem 0;
+    }
+
+    .fields {
+        padding: 1rem;
+        border: 1px solid var(--light_gray);
+        border-radius: .15rem;
+    }
+
+    footer {
+        z-index: 2;
+        width: 60%;
+        right: 10%;
+        bottom: 3%;
+    }
+
+    footer button {
+        padding: 1.2rem;
+    }
+    
 }
