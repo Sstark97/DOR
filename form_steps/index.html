@@ -12,28 +12,28 @@
         <header>
             <nav>
                 <div class="nav-item">
-                    <div>1</div>
+                    <div id="first" class="nav-item-selected">1</div>
                     <div class="nav-item-info">
                         <p>STEP 1</p>
                         <p>YOUR INFO</p>
                     </div>
                 </div>
                 <div class="nav-item">
-                    <div>2</div>
+                    <div id="second">2</div>
                     <div class="nav-item-info">
                         <p>STEP 2</p>
                         <p>SELECT PLAN</p>
                     </div>
                 </div>
                 <div class="nav-item">
-                    <div>3</div>
+                    <div id="third">3</div>
                     <div class="nav-item-info">
                         <p>STEP 3</p>
                         <p>ADD-ONS</p>
                     </div>
                 </div>
                 <div class="nav-item">
-                    <div>4</div>
+                    <div id="fourth">4</div>
                     <div class="nav-item-info">
                         <p>STEP 4</p>
                         <p>SUMMARY</p>
@@ -49,26 +49,29 @@
                     address and phone number.
                 </p>
             </div>
-            <form>
-                <div>
+            <form id="form">
+                <div class="field">
                     <label class="labels" for="name">Name</label>
-                    <input class="fields" type="text" name="name" placeholder="e.g Stephen King">
+                    <input class="fields" type="text" name="name" placeholder="e.g Stephen King" required>
                 </div>
-                <div>
+                <div class="field">
                     <label class="labels" for="email">Email Adress</label>
-                    <input class="fields" type="email" name="email" placeholder="e.g stephenking@lorem.com">
+                    <input class="fields" type="email" name="email" placeholder="e.g stephenking@lorem.com" required>
                 </div>
-                <div>
-                    <label class="labels" for="phone">Phone Number</label>
-                    <input class="fields" type="text" name="phone" placeholder="e.g +1 234 567 890">
+                <div class="field">
+                    <div class="labels-container">
+                        <label class="labels" for="phone">Phone Number</label>
+                        <div>Error</div>
+                    </div>
+                    <input class="fields" type="text" name="phone" placeholder="e.g +1 234 567 890" required>
                 </div>
             </form>
         </main>
     
         <footer>
-            <button>Nex Step</button>
+            <button id="change_step">Nex Step</button>
         </footer>
     </div>
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" type="module"></script>
 </body>
 </html>

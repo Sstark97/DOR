@@ -61,10 +61,18 @@ nav {
 }
 
 .nav-item div:first-child {
-    color: var(--white);
     border: 1px solid  var(--white);
     border-radius: 1.2rem;
     padding: .5rem .75rem;
+}
+
+.nav-item div:first-child:not(.nav-item-selected) {
+    color: var(--white);
+}
+
+.nav-item-selected {
+    background: var(--light_blue);
+    color: var(--marine_blue);
 }
 
 .nav-item-info {
@@ -104,7 +112,7 @@ form {
     margin: 0 auto;
 }
 
-form div{
+.field {
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
@@ -144,12 +152,19 @@ footer button {
     padding: 0 1rem;
 }
 
+.labels-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-bottom: .15rem;
+}
+
 .labels {
+    width: 50%;
     font-size: .8rem;
     font-weight: 700;
     color: var(--marine_blue);
-
-    margin-bottom: .15rem;
 }
 
 .fields {
@@ -213,6 +228,10 @@ footer button {
         margin: 0 1.5rem;
     }
 
+    .nav-item div:first-child:hover{
+        cursor: pointer;
+    }
+
     .nav-item-info {
         display: block;
     }
@@ -226,7 +245,7 @@ footer button {
         margin: .7rem 0;
     }
 
-    .labels {
+    .labels-container {
         margin-bottom: .4rem;
     }
 
@@ -261,6 +280,10 @@ footer button {
 
     footer button {
         padding: 1.2rem;
+    }
+
+    footer button:hover {
+        cursor: pointer;
     }
     
 }
