@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Formulario Varios Pasos</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="form-header">
+            <h2>Personal Info</h2>
+            <p>Please provide your name, email 
+                address and phone number.
+            </p>
+        </div>
+        <form>
+            <div>
+                <label class="labels" for="name">Name</label>
+                <input class="fields" type="text" name="name" placeholder="e.g Stephen King">
+            </div>
+            <div>
+                <label class="labels" for="email">Email Adress</label>
+                <input class="fields" type="email" name="email" placeholder="e.g stephenking@lorem.com">
+            </div>
+            <div>
+                <label class="labels" for="phone">Phone Number</label>
+                <input class="fields" type="text" name="phone" placeholder="e.g +1 234 567 890">
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <button>Nex Step</button>
+    </footer>
+    
+    <script src="./js/main.js"></script>
+</body>
+</html>
