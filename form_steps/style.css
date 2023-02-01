@@ -176,6 +176,13 @@ footer button {
 .fields::placeholder {
     color: var(--cool_gray);
 }
+.errors {
+    width: 50%;
+    text-align: right;
+    color: var(--strawberry_red);
+    font-weight: bold;
+    font-size: .8rem;
+}
 
 @media screen and (min-width: 1440px){
     #form-container {
