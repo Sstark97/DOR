@@ -1,5 +1,5 @@
 import { steps, state} from "./const.js"
-import { createErrorMessages} from "./functions.js"
+import { createErrorMessages, step2 } from "./functions.js"
 
 const formContainer = document.querySelector("#form-container")
 
@@ -8,8 +8,13 @@ formContainer.addEventListener("click", e => {
 
     if(element.id === "change_step") {
         const inputs = [...document.querySelectorAll("#form input")]
-        createErrorMessages(inputs)
-        console.log(state)
+        const nextStep = createErrorMessages(inputs);
+
+        if (nextStep) {
+            if (element.className === "step1"){
+                step2();
+            }
+        }
     }
 
     if(steps.includes(element.id)) {
