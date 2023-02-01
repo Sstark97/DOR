@@ -1,4 +1,4 @@
-import { emailRegex, phoneRegex, errorMessages } from "./const.js"
+import { emailRegex, phoneRegex, errorMessages, state} from "./const.js"
 
 const validateForm = fields => {
     const inputsMapped = fields.map(input => input.value)
@@ -18,18 +18,23 @@ const errorsClean = () => {
 
 const createErrorMessages = fields => {
     const errors = validateForm(fields)
+    const allError = errors.find(error => error);
     errorsClean()
 
-    errors.forEach((error, index) => {
-        if(error) {
-            const fieldsContainer = fields[index].previousElementSibling
-            const errorContainer = document.createElement("div")
-            errorContainer.className = "errors"
-            errorContainer.textContent = errorMessages[index]
-
-            fieldsContainer.append(errorContainer)
-        }
-    })
+    if (!allError) {
+        fields.forEach(field => state[field.name] = field.value)
+    } else {
+        errors.forEach((error, index) => {
+            if(error) {
+                const fieldsContainer = fields[index].previousElementSibling
+                const errorContainer = document.createElement("div")
+                errorContainer.className = "errors"
+                errorContainer.textContent = errorMessages[index]
+    
+                fieldsContainer.append(errorContainer)
+            }
+        })
+    }
 }
 
 export {
