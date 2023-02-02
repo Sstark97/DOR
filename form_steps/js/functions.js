@@ -79,6 +79,7 @@ const firstStep = () => {
     form.append(...fields)
 }
 
+
 const secondStep = () => {
     const h2 = $.querySelector("#form-header h2")
     h2.textContent = "Select your plan"
