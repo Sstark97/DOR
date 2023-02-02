@@ -1,4 +1,6 @@
-import { emailRegex, phoneRegex, errorMessages, state} from "./const.js"
+import { emailRegex, phoneRegex, errorMessages, firstStepFields, state} from "./const.js"
+
+const $ = document
 
 const validateForm = fields => {
     const inputsMapped = fields.map(input => input.value)
@@ -9,7 +11,7 @@ const validateForm = fields => {
 }
 
 const errorsClean = () => {
-    const errorsList = [...document.querySelectorAll(".errors")]
+    const errorsList = [...$.querySelectorAll(".errors")]
 
     if(errorsList.length !== 0) {
         errorsList.forEach(error => error.remove())
@@ -28,7 +30,7 @@ const createErrorMessages = fields => {
         errors.forEach((error, index) => {
             if(error) {
                 const fieldsContainer = fields[index].previousElementSibling
-                const errorContainer = document.createElement("div")
+                const errorContainer = $.createElement("div")
                 errorContainer.className = "errors"
                 errorContainer.textContent = errorMessages[index]
     
@@ -39,27 +41,59 @@ const createErrorMessages = fields => {
     }
 }
 
-function changeStepsColor(step1, step2) {
-    const number1 = document.querySelector(`#${step1}`);
+const changeStepsColor = (step1, step2) => {
+    const number1 = $.querySelector(`#${step1}`);
     number1.classList.remove("nav-item-selected")
 
-    const number2 = document.querySelector(`#${step2}`);
+    const number2 = $.querySelector(`#${step2}`);
     number2.classList.add("nav-item-selected")
 }
 
-function step2 (){
-    const h2 = document.querySelector("#form-header h2")
+const firstStep = () => {
+    const form = $.querySelector("#form")
+    const fields = firstStepFields.map(field => {
+        const {name, label, placeholder } = field
+        const fieldContainer = $.createElement("div")
+        const labelContainer = $.createElement("div")
+        const labelElement = $.createElement("label")
+        const input = $.createElement("input")
+
+        fieldContainer.className = "field"
+        labelContainer.className = "labels-container"
+        labelElement.className = "labels"
+        input.className = "fields"
+
+        labelElement.for = name
+        labelElement.textContent = label
+
+        input.type = name !== "email" ? "text" : "email"
+        input.name = name
+        input.placeholder = placeholder
+
+        labelContainer.append(labelElement)
+        fieldContainer.append(labelContainer, input)
+
+        return fieldContainer
+    })
+
+    form.append(...fields)
+}
+
+const secondStep = () => {
+    const h2 = $.querySelector("#form-header h2")
     h2.textContent = "Select your plan"
 
-    const p = document.querySelector("#form-header p")
+    const p = $.querySelector("#form-header p")
     p.textContent = "You have the option of monthly of yearly billing."
 
-    const form = document.querySelector("form")
+    const form = $.querySelector("form")
     form.innerHTML = "";
 
     changeStepsColor("first", "second")
 }
 
 export {
-    createErrorMessages, step2
+    createErrorMessages, 
+    firstStep,
+    secondStep
 }

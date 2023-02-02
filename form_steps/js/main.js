@@ -1,7 +1,11 @@
 import { steps, state} from "./const.js"
-import { createErrorMessages, step2 } from "./functions.js"
+import { createErrorMessages, firstStep, secondStep } from "./functions.js"
 
 const formContainer = document.querySelector("#form-container")
+
+window.addEventListener("load", () => {
+    firstStep()
+})
 
 formContainer.addEventListener("click", e => {
     const element = e.target
@@ -12,7 +16,7 @@ formContainer.addEventListener("click", e => {
 
         if (nextStep) {
             if (element.className === "step1"){
-                step2();
+                secondStep();
             }
         }
     }
