@@ -1,4 +1,11 @@
-import { emailRegex, phoneRegex, errorMessages, firstStepFields, state} from "./const.js"
+import { 
+    emailRegex, 
+    phoneRegex, 
+    errorMessages, 
+    firstStepFields,
+    state, 
+    plans
+} from "./const.js"
 
 const $ = document
 
@@ -49,6 +56,30 @@ const changeStepsColor = (step1, step2) => {
     number2.classList.add("nav-item-selected")
 }
 
+const createGoBack = () => {
+    const goBack = $.createElement("button")
+    goBack.id = "go_back"
+    goBack.className = "step1"
+    goBack.textContent = "Go Back"
+
+    return goBack
+}
+
+const footer = (goBack = false) => {
+    const footer = $.createElement("footer")
+    const nextStep = $.createElement("button")
+    const goBackElement =  goBack ? createGoBack() : ""
+
+    footer.className = `${goBack ? "with_go_back" : ""}` 
+    nextStep.className = "step1"
+    nextStep.id = "change_step"
+    nextStep.textContent = "Next Step"
+
+    footer.append(goBackElement, nextStep)
+
+    return footer
+}
+
 const firstStep = () => {
     const form = $.querySelector("#form")
     const fields = firstStepFields.map(field => {
@@ -63,7 +94,7 @@ const firstStep = () => {
         labelElement.className = "labels"
         input.className = "fields"
 
-        labelElement.for = name
+        labelElement.setAttribute("for", name)
         labelElement.textContent = label
 
         input.type = name !== "email" ? "text" : "email"
@@ -76,7 +107,83 @@ const firstStep = () => {
         return fieldContainer
     })
 
-    form.append(...fields)
+
+    form.append(...fields, footer())
+}
+
+const createPlanType = () => {
+    const planTypeContainer = $.createElement("div")
+    const monthly = $.createElement("p")
+    const sliderContainer = $.createElement("div")
+    const sliderLabel = $.createElement("label")
+    const sliderCheckBox = $.createElement("input")
+    const sliderRound = $.createElement("div")
+    const yearly = $.createElement("p")
+
+    planTypeContainer.id = "plan-type-container"
+
+    monthly.textContent = "Monthly"
+
+    sliderContainer.className = "container"
+
+    sliderLabel.className = "switch"
+    sliderLabel.setAttribute("for", "checkbox")
+
+    sliderCheckBox.type = "checkbox"
+    sliderCheckBox.id = "checkbox"
+
+    sliderRound.className = "slider round"
+
+    yearly.textContent ="Yearly"
+
+    sliderLabel.append(sliderCheckBox, sliderRound)
+    sliderContainer.append(sliderLabel)
+    planTypeContainer.append(monthly, sliderContainer, yearly)
+
+    return planTypeContainer
+}
+
+const secondStepContent = () => {
+    const secondStepContainer = $.createElement("div")
+    secondStepContainer.id = "plan-container"
+
+    const boxs = plans.map(plan => {
+        const { name, price } = plan
+        const box = $.createElement("div")
+        const planRadio = $.createElement("input")
+        const planLabel = $.createElement("label")
+        const planImg = $.createElement("img")
+        const planInfo = $.createElement("div")
+        const planText = $.createElement("p")
+        const priceElement = $.createElement("p")
+
+        box.className = "box"
+        planRadio.className = "hidden"
+        
+        planRadio.type = "radio"
+        planRadio.name = "plan"
+        planRadio.id = name
+        planRadio.value = name
+
+        planLabel.setAttribute("for", name)
+
+        planImg.src = `./assets/images/icon-${name}.svg`
+
+        planInfo.className = "plan-info"
+
+        planText.textContent = `${name.charAt(0).toUpperCase()}${name.slice(1)}`
+        priceElement.textContent = `$${price}/mo`
+
+        planInfo.append(planText, priceElement)
+        planLabel.append(planImg, planInfo)
+        box.append(planRadio, planLabel)
+
+        return box
+    })
+
+    secondStepContainer.append(...boxs)
+
+    return secondStepContainer
 }
 
 
@@ -91,6 +198,7 @@ const secondStep = () => {
     form.innerHTML = "";
 
     changeStepsColor("first", "second")
+    form.append(secondStepContent(), createPlanType(), footer(true))
 }
 
 export {

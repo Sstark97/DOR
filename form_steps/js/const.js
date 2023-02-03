@@ -16,11 +16,27 @@ const errorMessages = [
     "The number is not shapely e.g: +1 234 567 890"
 ]
 
+const plans = [
+    {
+        name: "arcade", 
+        price: 9
+    },
+    {
+        name: "advanced",
+        price: 12
+    },
+    {
+        name: "pro",
+        price: 15
+    }
+]
+
 export {
     steps, 
     emailRegex,
     phoneRegex,
     errorMessages,
     state,
-    firstStepFields
+    firstStepFields,
+    plans
 }
