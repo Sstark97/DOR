@@ -1,5 +1,5 @@
-import { steps, state} from "./const.js"
-import { createErrorMessages, firstStep, secondStep } from "./functions.js"
+import { steps, state, stepActions} from "./const.js"
+import { changeNumbers, changePrice, createErrorMessages, firstStep, secondStep } from "./functions.js"
 
 const formContainer = document.querySelector("#form-container")
 
@@ -10,20 +10,45 @@ window.addEventListener("load", () => {
 formContainer.addEventListener("click", e => {
     const element = e.target
 
-    if(element.id === "change_step") {
-        const inputs = [...document.querySelectorAll("#form input")]
-        const nextStep = createErrorMessages(inputs);
+    if(element.id === "change_step" || element.id === "go_back") {
+        let nextStep = false
+
+        if(element.className === "second_step") {
+            const inputs = [...document.querySelectorAll("#form input")]
+            nextStep = createErrorMessages(inputs);
+        }
 
         if (nextStep) {
-            if (element.className === "step1"){
-                secondStep();
-            }
+            secondStep()
+        }
+
+        if (stepActions[element.className]){
+            stepActions[element.className]()
         }
     }
 
+    if(element.id === "change_price") {
+        changePrice()
+    }
+
     if(steps.includes(element.id)) {
-        const previousSelected = document.querySelector(".nav-item-selected")
-        previousSelected.classList.remove("nav-item-selected")
-        element.classList.add("nav-item-selected")
+        const action = `${element.id}_step`
+
+        let nextStep = false
+
+        if(action === "second_step") {
+            const inputs = [...document.querySelectorAll("#form input")]
+            nextStep = createErrorMessages(inputs);
+        }
+
+        if (nextStep) {
+            changeNumbers(element)
+            secondStep()
+        }
+
+        if (stepActions[action]){
+            changeNumbers(element)
+            stepActions[action]()
+        }
     }
 })

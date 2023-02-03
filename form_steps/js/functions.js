@@ -9,6 +9,12 @@ import {
 
 const $ = document
 
+const changeNumbers = element => {
+    const previousSelected = document.querySelector(".nav-item-selected")
+    previousSelected.classList.remove("nav-item-selected")
+    element.classList.add("nav-item-selected")
+}
+
 const validateForm = fields => {
     const inputsMapped = fields.map(input => input.value)
     const [name, email, phone] = inputsMapped
@@ -56,24 +62,26 @@ const changeStepsColor = (step1, step2) => {
     number2.classList.add("nav-item-selected")
 }
 
-const createGoBack = () => {
+const createGoBack = prevStep => {
     const goBack = $.createElement("button")
     goBack.id = "go_back"
-    goBack.className = "step1"
+    goBack.className = prevStep
     goBack.textContent = "Go Back"
+    goBack.type = "button"
 
     return goBack
 }
 
-const footer = (goBack = false) => {
+const footer = (step, prevStep = "", goBack = false) => {
     const footer = $.createElement("footer")
     const nextStep = $.createElement("button")
-    const goBackElement =  goBack ? createGoBack() : ""
+    const goBackElement =  goBack ? createGoBack(prevStep) : ""
 
     footer.className = `${goBack ? "with_go_back" : ""}` 
-    nextStep.className = "step1"
+    nextStep.className = step
     nextStep.id = "change_step"
     nextStep.textContent = "Next Step"
+    nextStep.type = "button"
 
     footer.append(goBackElement, nextStep)
 
@@ -82,6 +90,8 @@ const footer = (goBack = false) => {
 
 const firstStep = () => {
     const form = $.querySelector("#form")
+    form.innerHTML = ""
+
     const fields = firstStepFields.map(field => {
         const {name, label, placeholder } = field
         const fieldContainer = $.createElement("div")
@@ -99,6 +109,7 @@ const firstStep = () => {
 
         input.type = name !== "email" ? "text" : "email"
         input.name = name
+        input.value = state[name] ?? ""
         input.placeholder = placeholder
 
         labelContainer.append(labelElement)
@@ -108,7 +119,7 @@ const firstStep = () => {
     })
 
 
-    form.append(...fields, footer())
+    form.append(...fields, footer("second_step"))
 }
 
 const createPlanType = () => {
@@ -132,6 +143,7 @@ const createPlanType = () => {
     sliderCheckBox.type = "checkbox"
     sliderCheckBox.id = "checkbox"
 
+    sliderRound.id = "change_price"
     sliderRound.className = "slider round"
 
     yearly.textContent ="Yearly"
@@ -198,11 +210,19 @@ const secondStep = () => {
     form.innerHTML = "";
 
     changeStepsColor("first", "second")
-    form.append(secondStepContent(), createPlanType(), footer(true))
+    form.append(secondStepContent(), createPlanType(), footer("third_step", "first_step", true))
+}
+
+const changePrice = () => {
+    const allPrices = [...$.querySelectorAll(".plan-info p:last-child")]
+
+    console.log(allPrices)
 }
 
 export {
+    changeNumbers,
     createErrorMessages, 
     firstStep,
-    secondStep
+    secondStep,
+    changePrice
 }

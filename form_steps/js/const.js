@@ -1,3 +1,5 @@
+import { firstStep, secondStep } from "./functions.js"
+
 const steps = ["first", "second", "third", "fourth"]
 const emailRegex = /^([a-z]|\d|[_]|[-])+[@][a-zA-Z]+[.](com|es|org)$/
 const phoneRegex = /^[+]\d{1,2}[ ]\d{9}$/
@@ -31,6 +33,10 @@ const plans = [
     }
 ]
 
+const stepActions = {
+    "first_step": () => firstStep(),
+}
+
 export {
     steps, 
     emailRegex,
@@ -38,5 +44,6 @@ export {
     errorMessages,
     state,
     firstStepFields,
-    plans
+    plans,
+    stepActions
 }
