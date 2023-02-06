@@ -88,6 +88,17 @@ const footer = (step, prevStep = "", goBack = false) => {
     return footer
 }
 
+const changePrice = () => {
+    const allPrices = [...$.querySelectorAll(".plan-info p:last-child")]
+    const planActive = $.querySelector("#checkbox")
+
+    allPrices.forEach((planInfo, index) => {
+        const currentPrice = !planActive.checked ? `$${plans[index].price * 10 }/yr`: `$${plans[index].price}/mo`
+        
+        planInfo.textContent = currentPrice
+    })
+}
+
 const firstStep = () => {
     const form = $.querySelector("#form")
     form.innerHTML = ""
@@ -198,7 +209,6 @@ const secondStepContent = () => {
     return secondStepContainer
 }
 
-
 const secondStep = () => {
     const h2 = $.querySelector("#form-header h2")
     h2.textContent = "Select your plan"
@@ -213,10 +223,14 @@ const secondStep = () => {
     form.append(secondStepContent(), createPlanType(), footer("third_step", "first_step", true))
 }
 
-const changePrice = () => {
-    const allPrices = [...$.querySelectorAll(".plan-info p:last-child")]
+const thirdStep = () => {
+    const planActive = $.querySelector("#checkbox")
+    const plan = $.querySelector("input[type='radio']:checked")
 
-    console.log(allPrices)
+    state.planType = !planActive.checked ? "yearly" : "monthly"
+    state.plan = plan.value
+
+    console.log(state)
 }
 
 export {
@@ -224,5 +238,6 @@ export {
     createErrorMessages, 
     firstStep,
     secondStep,
-    changePrice
+    changePrice,
+    thirdStep
 }

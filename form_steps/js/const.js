@@ -1,4 +1,4 @@
-import { firstStep, secondStep } from "./functions.js"
+import { firstStep, thirdStep} from "./functions.js"
 
 const steps = ["first", "second", "third", "fourth"]
 const emailRegex = /^([a-z]|\d|[_]|[-])+[@][a-zA-Z]+[.](com|es|org)$/
@@ -35,6 +35,7 @@ const plans = [
 
 const stepActions = {
     "first_step": () => firstStep(),
+    "third_step": () => thirdStep()
 }
 
 export {
