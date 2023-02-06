@@ -54,12 +54,13 @@ const createErrorMessages = fields => {
     }
 }
 
-const changeStepsColor = (step1, step2) => {
-    const number1 = $.querySelector(`#${step1}`);
-    number1.classList.remove("nav-item-selected")
+const changeStepsColor = step => {
+    const allNumbers = [...$.querySelectorAll(".nav-item div:not(.nav-item-info)")]
 
-    const number2 = $.querySelector(`#${step2}`);
-    number2.classList.add("nav-item-selected")
+    allNumbers.forEach(steps => steps.className = "")
+
+    const number1 = $.querySelector(`#${step}`);
+    number1.classList.add("nav-item-selected")
 }
 
 const createGoBack = prevStep => {
@@ -100,6 +101,7 @@ const changePrice = () => {
 }
 
 const firstStep = () => {
+    changeStepsColor("first")
     const form = $.querySelector("#form")
     form.innerHTML = ""
 
@@ -153,6 +155,7 @@ const createPlanType = () => {
 
     sliderCheckBox.type = "checkbox"
     sliderCheckBox.id = "checkbox"
+    sliderCheckBox.checked = state.planType === "yearly"
 
     sliderRound.id = "change_price"
     sliderRound.className = "slider round"
@@ -170,7 +173,7 @@ const secondStepContent = () => {
     const secondStepContainer = $.createElement("div")
     secondStepContainer.id = "plan-container"
 
-    const boxs = plans.map(plan => {
+    const boxs = plans.map((plan, index) => {
         const { name, price } = plan
         const box = $.createElement("div")
         const planRadio = $.createElement("input")
@@ -179,6 +182,8 @@ const secondStepContent = () => {
         const planInfo = $.createElement("div")
         const planText = $.createElement("p")
         const priceElement = $.createElement("p")
+        
+        const currentPrice = state.planType === "yearly" ? `$${plans[index].price * 10 }/yr`: `$${plans[index].price}/mo`
 
         box.className = "box"
         planRadio.className = "hidden"
@@ -187,6 +192,10 @@ const secondStepContent = () => {
         planRadio.name = "plan"
         planRadio.id = name
         planRadio.value = name
+        planRadio.autofocus = state.plan === name ? true : undefined
+        planRadio.checked = state.plan === name ? true : undefined
+
+        console.log(planRadio.checked)
 
         planLabel.setAttribute("for", name)
 
@@ -195,7 +204,7 @@ const secondStepContent = () => {
         planInfo.className = "plan-info"
 
         planText.textContent = `${name.charAt(0).toUpperCase()}${name.slice(1)}`
-        priceElement.textContent = `$${price}/mo`
+        priceElement.textContent = currentPrice
 
         planInfo.append(planText, priceElement)
         planLabel.append(planImg, planInfo)
@@ -209,7 +218,23 @@ const secondStepContent = () => {
     return secondStepContainer
 }
 
+const thirdStepContent = () => {
+    const thirdStepContainer = $.createElement("div")
+    thirdStepContainer.id = "plan-container"
+
+    const { planType: type } = state
+
+    const img = $.createElement("img")
+    img.src = `./assets/images/third_${type}.PNG`
+
+    thirdStepContainer.append(img)
+
+    return thirdStepContainer
+
+}
+
 const secondStep = () => {
+    changeStepsColor("second")
     const h2 = $.querySelector("#form-header h2")
     h2.textContent = "Select your plan"
 
@@ -219,18 +244,27 @@ const secondStep = () => {
     const form = $.querySelector("form")
     form.innerHTML = "";
 
-    changeStepsColor("first", "second")
     form.append(secondStepContent(), createPlanType(), footer("third_step", "first_step", true))
 }
 
 const thirdStep = () => {
+    changeStepsColor("third")
     const planActive = $.querySelector("#checkbox")
     const plan = $.querySelector("input[type='radio']:checked")
 
-    state.planType = !planActive.checked ? "yearly" : "monthly"
-    state.plan = plan.value
+    state.planType = planActive && planActive.checked ? "yearly" : "monthly"
+    state.plan = plan ? plan.value : undefined
 
-    console.log(state)
+    const h2 = $.querySelector("#form-header h2")
+    h2.textContent = "Pick add-ons"
+
+    const p = $.querySelector("#form-header p")
+    p.textContent = "Add-ons help enhance your gaming experience."
+
+    const form = $.querySelector("form")
+    form.innerHTML = "";
+
+    form.append(thirdStepContent(), footer("fourth_step", "second_step", true))
 }
 
 export {

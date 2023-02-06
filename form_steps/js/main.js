@@ -9,20 +9,22 @@ window.addEventListener("load", () => {
 
 formContainer.addEventListener("click", e => {
     const element = e.target
+    const elementsInState = Object.entries(state).length
+    console.log(state)
 
     if(element.id === "change_step" || element.id === "go_back") {
         let nextStep = false
 
         if(element.className === "second_step") {
             const inputs = [...document.querySelectorAll("#form input")]
-            nextStep = createErrorMessages(inputs);
+            nextStep = inputs.length !== 0 ? createErrorMessages(inputs) : true;
         }
 
         if (nextStep) {
             secondStep()
         }
 
-        if (stepActions[element.className]){
+        if (stepActions[element.className] && elementsInState >= 3){
             stepActions[element.className]()
         }
     }
@@ -38,7 +40,7 @@ formContainer.addEventListener("click", e => {
 
         if(action === "second_step") {
             const inputs = [...document.querySelectorAll("#form input")]
-            nextStep = createErrorMessages(inputs);
+            nextStep = inputs.length !== 0 ? createErrorMessages(inputs) : true;
         }
 
         if (nextStep) {
@@ -46,7 +48,7 @@ formContainer.addEventListener("click", e => {
             secondStep()
         }
 
-        if (stepActions[action]){
+        if (stepActions[action] && elementsInState >= 3){
             changeNumbers(element)
             stepActions[action]()
         }
