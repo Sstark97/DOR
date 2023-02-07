@@ -174,7 +174,7 @@ const secondStepContent = () => {
     secondStepContainer.id = "plan-container"
 
     const boxs = plans.map((plan, index) => {
-        const { name, price } = plan
+        const { name } = plan
         const box = $.createElement("div")
         const planRadio = $.createElement("input")
         const planLabel = $.createElement("label")
@@ -226,10 +226,72 @@ const thirdStepContent = () => {
 
     const img = $.createElement("img")
     img.src = `./assets/images/third_${type}.PNG`
+    img.className = "addons_img"
 
     thirdStepContainer.append(img)
 
     return thirdStepContainer
+
+}
+
+const fourthStepContent = () => {
+
+    const resume = $.createElement("div")
+    const planSelected = $.createElement("p")
+    const divPlan = $.createElement("div")
+    const change = $.createElement("a")
+    const planPrice = $.createElement("p")
+    const firstAddon = $.createElement("div")
+    const titleFirstAddon = $.createElement("p")
+    const priceFirstAddon = $.createElement("p")
+    const secondAddon = $.createElement("div")
+    const titleSecondAddon = $.createElement("p")
+    const priceSecondAddon = $.createElement("p")
+
+    const { plan, planType } = state
+    const planCapitalize = `${plan.charAt(0).toUpperCase()}${plan.slice(1)}`
+    const planTypeCapitalize = `${planType.charAt(0).toUpperCase()}${planType.slice(1)}`
+    const planData = plans.find(currentPlan => currentPlan.name === plan)
+    const currentPrice = state.planType === "yearly" ? `$${planData.price * 10 }/yr`: `$${planData.price}/mo`
+
+    resume.id = "resume"
+
+    planSelected.id = "plan-selected"
+    planSelected.textContent = `${planCapitalize} (${planTypeCapitalize})`
+
+    change.href = "#"
+    change.textContent = "Change"
+
+    planPrice.id = "plan-selected-price"
+    planPrice.textContent = currentPrice
+
+    divPlan.append(change, planPrice)
+
+    titleFirstAddon.textContent = "Online Service"
+    priceFirstAddon.textContent = "$0"
+
+    titleSecondAddon.textContent = "Larger Storage"
+    priceSecondAddon.textContent = "$0"
+
+    firstAddon.append(titleFirstAddon, priceFirstAddon)
+    secondAddon.append(titleSecondAddon, priceSecondAddon)
+
+    resume.append(planSelected, divPlan, firstAddon, secondAddon)
+
+    const totalResume = $.createElement("div")
+    const divResume = $.createElement("div")
+    const total = $.createElement("p")
+    const totalPrice = $.createElement("p")
+
+    totalResume.id = "total-resume"
+    total.textContent =  "Total (per month)"
+    totalPrice.id = "total-price"
+    totalPrice.textContent = `+${currentPrice}`
+
+    divResume.append(total, totalPrice)
+    totalResume.append(divResume)
+
+    return [resume, totalResume]
 
 }
 
@@ -267,11 +329,27 @@ const thirdStep = () => {
     form.append(thirdStepContent(), footer("fourth_step", "second_step", true))
 }
 
+const fourthStep = () => {
+    changeStepsColor("fourth")
+
+    const h2 = $.querySelector("#form-header h2")
+    h2.textContent = "Finishing up"
+
+    const p = $.querySelector("#form-header p")
+    p.textContent = "Double-check everything looks OK before confirming"
+
+    const form = $.querySelector("form")
+    form.innerHTML = "";
+
+    form.append(...fourthStepContent(), footer("five_step", "third_step", true))
+}
+
 export {
     changeNumbers,
     createErrorMessages, 
     firstStep,
     secondStep,
     changePrice,
-    thirdStep
+    thirdStep, 
+    fourthStep
 }

@@ -25,6 +25,7 @@ formContainer.addEventListener("click", e => {
         }
 
         if (stepActions[element.className] && elementsInState >= 3){
+            console.log("ALLI")
             stepActions[element.className]()
         }
     }

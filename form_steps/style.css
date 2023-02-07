@@ -241,6 +241,10 @@ footer #change_step {
     border: 1px solid var(--purplish_blue);
 }
 
+.addons_img{
+    width: 100%;
+}
+
 .hidden {
     opacity: 0;
 }
@@ -325,6 +329,36 @@ footer #go_back{
   .slider.round:before {
     border-radius: 50%;
   }  
+
+  #resume {
+    background: var(--alabaster);
+    border: 1px solid var(--alabaster);
+    border-radius: .5rem;
+    padding: 1rem;
+  }
+
+  #resume div, #total-resume div   {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: .7rem;
+  }
+
+  #plan-selected, #plan-selected-price {
+    color: var(--marine_blue);
+    font-weight: bold;
+  }
+
+  #total-price{
+    color: var(--purplish_blue);
+    font-weight: bold;
+  }
+
+  #resume div:first-child a{
+    color: var(--purplish_blue);
+  }
 
 @media screen and (min-width: 1440px){
     #form-container {
@@ -479,5 +513,14 @@ footer #go_back{
     footer {
         width: 100%;
         margin-top: 4.5rem;
+    }
+
+    .addons_img{
+        width: auto;
+    }
+
+    #resume, #total-resume{
+        width: 70%;
+        margin: 0 auto;
     }
 }
